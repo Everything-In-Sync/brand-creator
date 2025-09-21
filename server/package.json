@@ -1,0 +1,26 @@
+{
+  "name": "brand-creator-server",
+  "version": "0.1.0",
+  "type": "module",
+  "private": true,
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "nodemon src/index.js",
+    "start": "node src/index.js",
+    "build": "echo 'Server uses runtime JavaScript'",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "archiver": "^5.3.2",
+    "chroma-js": "^2.4.2",
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "fs-extra": "^11.2.0",
+    "nanoid": "^5.0.7",
+    "pngjs": "^7.0.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}
