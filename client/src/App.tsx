@@ -4,36 +4,31 @@ import { SwatchStrip } from './components/SwatchStrip';
 import { PreviewPanel } from './components/PreviewPanel';
 import { TypographyPanel } from './components/TypographyPanel';
 import { ExportActions } from './components/ExportActions';
+import logoImage from '../assets/images/logo.png';
 import type { FormState, Palette, ThemePreference } from './types';
 import { fetchIndustries, generatePalettes, downloadZip } from './lib/api';
 
 const toneOptions = [
-  'conservative',
-  'modern',
-  'playful',
-  'premium',
-  'eco friendly',
-  'trustworthy',
-  'energetic',
-  'minimal',
-  'artisan',
-  'techie',
-  'healthcare',
-  'finance',
-  'hospitality',
-  'education',
-  'construction',
-  'legal',
-  'non profit',
-  'restaurant',
-  'retail',
-  'beauty',
-  'fitness',
-  'automotive',
-  'real estate'
+  'Conservative',
+  'Modern',
+  'Playful',
+  'Premium',
+  'Eco Friendly',
+  'Trustworthy',
+  'Energetic',
+  'Minimal',
+  'Artisan',
+  'Techie',
 ];
 
 const themeOptions: ThemePreference[] = ['light-first', 'dark-first', 'neutral-first'];
+
+function formatIndustryLabel(value: string) {
+  return value
+    .split(/\s+/)
+    .map((segment) => segment.charAt(0).toUpperCase() + segment.slice(1))
+    .join(' ');
+}
 
 const defaultForm: FormState = {
   industry: '',
@@ -97,10 +92,15 @@ function App() {
 
   return (
     <div className="app-shell">
+      
       <aside className="sidebar">
-        <div>
-          <h1>Branding Package Generator</h1>
-          <p>Create deterministic, accessible palette sets tailored to each industry. Business context stays internal unless you enable it.</p>
+      <a href="https://sandhillsgeeks.com"target="_blank" rel="noopener noreferrer"><img className="brand-logo" src={logoImage} alt="Brand Creator logo" /></a>
+        <div className="sidebar-hero">
+
+          <div>
+            <h1>Branding Package Generator</h1>
+            <p>Create deterministic, accessible palette sets tailored to each industry. Business context stays internal unless you enable it.</p>
+          </div>
         </div>
         <form className="form" onSubmit={handleSubmit}>
           <div>
@@ -114,7 +114,7 @@ function App() {
             />
             <datalist id="industry-options">
               {industries.map((industry) => (
-                <option key={industry} value={industry} />
+                <option key={industry} value={formatIndustryLabel(industry)} />
               ))}
             </datalist>
           </div>
