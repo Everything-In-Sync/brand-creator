@@ -94,7 +94,7 @@ function App() {
     <div className="app-shell">
       
       <aside className="sidebar">
-      <a href="https://sandhillsgeeks.com"target="_blank" rel="noopener noreferrer"><img className="brand-logo" src={logoImage} alt="Brand Creator logo" /></a>
+      <a href="https://sandhillsgeeks.com"><img className="brand-logo" src={logoImage} alt="Brand Creator logo" /></a>
         <div className="sidebar-hero">
 
           <div>
